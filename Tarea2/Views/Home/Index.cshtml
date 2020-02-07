@@ -1,8 +1,121 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Tarea2.Models.Element
+
+@{
+    ViewData["Title"] = "Tabla Periodica";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1 class="text-center">Tabla Peri&oacute;dica</h1>
+
+<table width="100%">
+    @for (int i = 0; i < 10; i++)
+    {
+        <tr>
+            @{
+                for (int j = 0; j < 18; j++)
+                {
+                    //Row 1
+                    if (i == 0)
+                    {
+                        if (j == 0)
+                        {
+                            <td>2</td>
+                        }
+                        else if (j > 0 && j < 17)
+                        {
+                            <td class="blank"></td>
+                        }
+                        else
+                        {
+                            <td>3</td>
+                        }
+                    }
+                    //Row 2
+                    else if (i == 1)
+                    {
+                        if (j < 2)
+                        {
+                            <td>4</td>
+                        }
+                        else if (j > 1 && j < 12)
+                        {
+                            <td class="blank"></td>
+                        }
+                        else
+                        {
+                            <td>5</td>
+                        }
+
+                    }
+                    //Row 3
+                    else if (i == 2)
+                    {
+                        if (j < 2)
+                        {
+                            <td>6</td>
+                        }
+                        else if (j > 1 && j < 12)
+                        {
+                            <td class="blank"></td>
+                        }
+                        else
+                        {
+                            <td>7</td>
+                        }
+
+                    }
+                    //Row 4 - 7
+                    else if (i > 2 && i < 7)
+                    {
+                        <td>8</td>
+                    }
+                    //row 8
+                    else if (i == 7)
+                    {
+                        <td class="blank"></td>
+                    }
+                    //Row 9
+                    else if (i == 8)
+                    {
+                        if (j < 3)
+                        {
+                            <td class="blank"></td>
+                        }
+                        else
+                        {
+                            <td>9</td>
+                        }
+                    }
+                    //row 10
+                    else if (i == 9)
+                    {
+                        if (j < 3)
+                        {
+                            <td class="blank"></td>
+                        }
+                        else
+                        {
+                            <td>10</td>
+                        }
+                    }
+                }
+            }
+        </tr>
+    }
+</table>
+
+<style>
+    /*Tabla Periodica Stylo*/
+    td {
+        border-style: solid;
+        width: 50px;
+        height: 50px;
+    }
+
+        td.blank {
+            padding: 0px;
+            border-top: 0px;
+            border-right: 0px;
+            border-bottom: 0px;
+            border-left: 0px;
+        }
+</style>
