@@ -7,6 +7,10 @@ namespace Tarea2.Models
 {
     public class Element
     {
-        public string name { get; set; }
+        public string Name { get; set; }
+
+        public string Classification { get; set; }
+
+        public int AtomicNumber { get; set; }
     }
 }
