@@ -11,6 +11,6 @@ namespace Tarea2.Models
 
         public string Classification { get; set; }
 
-        public int AtomicNumber { get; set; }
+        public int AtomicNumber { get; set; } 
     }
 }

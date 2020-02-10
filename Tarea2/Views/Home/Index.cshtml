@@ -1,111 +1,133 @@
-﻿@model Tarea2.Models.Element
-
-@{
+﻿@{
     ViewData["Title"] = "Tabla Periodica";
 }
 
 <h1 class="text-center">Tabla Peri&oacute;dica</h1>
 
 <table width="100%">
-    @for (int i = 0; i < 10; i++)
-    {
-        <tr>
-            @{
-                for (int j = 0; j < 18; j++)
-                {
-                    //Row 1
-                    if (i == 0)
+    @{
+        int count = 0;
+
+        for (int i = 0; i < 10; i++)
+        {
+            <tr>
+                @{
+                    for (int j = 0; j < 18; j++)
                     {
-                        if (j == 0)
+                        if (true/*!(@ViewBag.Lista.IndexOf(@ViewBag.Lista[count],count) == -1)*/)
                         {
-                            <td>2</td>
-                        }
-                        else if (j > 0 && j < 17)
-                        {
-                            <td class="blank"></td>
+                            //Row 1
+                            if (i == 0)
+                            {
+                                if (j == 0)
+                                {
+                                    <td class="@ViewBag.Lista[count].Classification">@ViewBag.Lista[count].Name</td>
+                                    count++;
+
+                                }
+                                else if (j > 0 && j < 17)
+                                {
+                                    <td class="blank"></td>
+                                }
+                                else
+                                {
+                                    <td class="@ViewBag.Lista[count].Classification">@ViewBag.Lista[count].Name</td>
+                                    count++;
+
+                                }
+                            }
+                            //Row 2
+                            else if (i == 1)
+                            {
+                                if (j < 2)
+                                {
+                                    <td class="@ViewBag.Lista[count].Classification">@ViewBag.Lista[count].Name</td>
+                                    count++;
+                                }
+                                else if (j > 1 && j < 12)
+                                {
+                                    <td class="blank"></td>
+                                }
+                                else
+                                {
+                                    <td class="@ViewBag.Lista[count].Classification">@ViewBag.Lista[count].Name</td>
+                                    count++;
+                                }
+
+                            }
+                            //Row 3
+                            else if (i == 2)
+                            {
+                                if (j < 2)
+                                {
+                                    <td class="@ViewBag.Lista[count].Classification">@ViewBag.Lista[count].Name</td>
+                                    count++;
+                                }
+                                else if (j > 1 && j < 12)
+                                {
+                                    <td class="blank"></td>
+                                }
+                                else
+                                {
+                                    <td class="@ViewBag.Lista[count].Classification">@ViewBag.Lista[count].Name</td>
+                                    count++;
+                                }
+
+                            }
+                            //Row 4 - 7
+                            else if (i > 2 && i < 7)
+                            {
+                                <td class="@ViewBag.Lista[count].Classification">@ViewBag.Lista[count].Name</td>
+                                count++;
+                            }
+                            //row 8
+                            else if (i == 7)
+                            {
+                                <td class="blank"></td>
+                            }
+                            //Row 9
+                            else if (i == 8)
+                            {
+                                if (j < 3)
+                                {
+                                    <td class="blank"></td>
+                                }
+                                else
+                                {
+                                    <td class="@ViewBag.Lista[count].Classification">@ViewBag.Lista[count].Name</td>
+                                    count++;
+                                }
+                            }
+                            //row 10
+                            else if (i == 9)
+                            {
+                                if (j < 3)
+                                {
+                                    <td class="blank"></td>
+                                }
+                                else
+                                {
+                                    <td class="@ViewBag.Lista[count].Classification">@ViewBag.Lista[count].Name</td>
+                                    count++;
+                                }
+                            }
                         }
                         else
                         {
-                            <td>3</td>
-                        }
-                    }
-                    //Row 2
-                    else if (i == 1)
-                    {
-                        if (j < 2)
-                        {
-                            <td>4</td>
-                        }
-                        else if (j > 1 && j < 12)
-                        {
-                            <td class="blank"></td>
-                        }
-                        else
-                        {
-                            <td>5</td>
+                            <td style="background-color:gray"></td>
                         }
 
-                    }
-                    //Row 3
-                    else if (i == 2)
-                    {
-                        if (j < 2)
-                        {
-                            <td>6</td>
-                        }
-                        else if (j > 1 && j < 12)
-                        {
-                            <td class="blank"></td>
-                        }
-                        else
-                        {
-                            <td>7</td>
-                        }
-
-                    }
-                    //Row 4 - 7
-                    else if (i > 2 && i < 7)
-                    {
-                        <td>8</td>
-                    }
-                    //row 8
-                    else if (i == 7)
-                    {
-                        <td class="blank"></td>
-                    }
-                    //Row 9
-                    else if (i == 8)
-                    {
-                        if (j < 3)
-                        {
-                            <td class="blank"></td>
-                        }
-                        else
-                        {
-                            <td>9</td>
-                        }
-                    }
-                    //row 10
-                    else if (i == 9)
-                    {
-                        if (j < 3)
-                        {
-                            <td class="blank"></td>
-                        }
-                        else
-                        {
-                            <td>10</td>
-                        }
                     }
                 }
-            }
-        </tr>
+            </tr>
+        }
     }
 </table>
 
 <style>
     /*Tabla Periodica Stylo*/
     td {
+        text-align: center;
         border-style: solid;
         width: 50px;
         height: 50px;
@@ -118,10 +140,55 @@
             border-bottom: 0px;
             border-left: 0px;
         }
+
+    /*/# CC99FF //Alcalinos
+            //# FF99CC //AlcalinoTérreos
+            //# FF9933 //MetalesdeTransicion / Bloque D
+            //# CC6600 //Lantánidos
+            //# FF9999 //Antínidos
+            //# FFCC00 //OtrosMetales
+            //# CCCC00 //Metaloides
+            //#99CC00 //OtrosnoMetales
+            //#66FFCC //Halógenos
+            //#66CCFF //GasesNobles*/
+
+    .Alcalinos {
+        background-color: #CC99FF;
+    }
+
+    .AlcalinoTérreos {
+        background-color: #FF99CC;
+    }
+
+    .MetalesdeTransicion {
+        background-color: #FF9933;
+    }
+
+    .Lantánidos {
+        background-color: #99CC00;
+    }
+
+    .Antínidos {
+        background-color: #CC6600;
+    }
+
+    .OtrosMetales {
+        background-color: #FFCC00;
+    }
+
+    .Metaloides {
+        background-color: #CCCC00;
+    }
+
+    .OtrosnoMetales {
+        background-color: #99CC00;
+    }
+
+    .Halógenos {
+        background-color: #66FFCC;
+    }
+
+    .GasesNobles {
+        background-color: #66CCFF;
+    }
 </style>
-
-
-@for (int d = 0; d < 118; d++)
-{
-<label>new Element { Name = "H", Classification = "NoMetales",AtomicNumber = @d },</label>
-}
